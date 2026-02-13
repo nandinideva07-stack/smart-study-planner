@@ -1,2 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Study Planner</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #f0f8ff, #d0e8ff);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 { color: #2b7cff; }
+
+        input {
+            padding: 12px;
+            width: 300px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #2b7cff;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        button:hover { background-color: #1a5edb; }
+
+        #planOutput {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #planOutput ul { list-style: none; padding: 0; }
+
+        #planOutput li {
+            background-color: #e0f0ff;
+            margin: 10px auto;
+            padding: 12px;
+            width: 300px;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 18px;
+        }
+
+        .affiliate {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🚀 Smart Study Planner</h1>
+<p>Enter your subjects separated by commas:</p>
+<input type="text" id="subjects" placeholder="Math, Physics, Chemistry">
+<br>
+<button onclick="startApp()">Start Planning</button>
+<button onclick="resetPlan()">Reset</button>
+
+<div id="planOutput"></div>
+
+<!-- Example Affiliate Section -->
+<div class="affiliate">
+    <p>Check this study book for better preparation:</p>
+    <a href="https://www.amazon.in/dp/B09EXAMPLE/?tag=youraffiliateID" target="_blank">
+        Best Study Guide 📚
+    </a>
+</div>
+
+<script>
+function startApp() {
+    let input = document.getElementById("subjects").value;
+    if(input === "") {
+        alert("Please enter at least one subject!");
+        return;
+    }
+
+    let subjects = input.split(",").map(s => s.trim());
+    let plan = "<h2>Your Study Plan:</h2><ul>";
+    subjects.forEach((subject, index) => {
+        plan += "<li>Day " + (index+1) + ": " + subject + "</li>";
+    });
+    plan += "</ul>";
+
+    document.getElementById("planOutput").innerHTML = plan;
+}
+
+function resetPlan() {
+    document.getElementById("subjects").value = "";
+    document.getElementById("planOutput").innerHTML = "";
+}
+</script>
+
+</body>
+</html>
 # smart-study-planner
 My first hackathon project
