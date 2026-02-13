@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Study Planner</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #2b7cff;
+        }
+
+        input {
+            padding: 10px;
+            width: 250px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #2b7cff;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #1a5edb;
+        }
+
+        #planOutput {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #planOutput ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #planOutput li {
+            background-color: #e0f0ff;
+            margin: 10px auto;
+            padding: 10px;
+            width: 250px;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Smart Study Planner 🚀</h1>
+    <p>Enter your subjects separated by commas:</p>
+    <input type="text" id="subjects" placeholder="Math, Physics, Chemistry">
+    <button onclick="startApp()">Start Planning</button>
+
+    <div id="planOutput"></div>
+
+    <script>
+        function startApp() {
+            let input = document.getElementById("subjects").value;
+            if(input === "") {
+                alert("Please enter at least one subject!");
+                return;
+            }
+
+            let subjects = input.split(",").map(s => s.trim());
+
+            let plan = "<h2>Your Study Plan:</h2><ul>";
+            subjects.forEach((subject, index) => {
+                plan += "<li>Day " + (index+1) + ": " + subject + "</li>";
+            });
+            plan += "</ul>";
+
+            document.getElementById("planOutput").innerHTML = plan;
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
